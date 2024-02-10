@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GMart - Online Shopping</title>
+    <link rel="icon" href="assets/images/gmart.png" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/poppins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/script.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="./assets/images/logo.png" class="img-fluid" width="110" />
+      </div>
+      <div class="sidebar-nav">
+        <ul>
+          <li><a class="active" href="#introduction">Introduction</a></li>
+          <li><a href="#requirements">Requirements</a></li>
+          <li><a href="#configuration">Configuration</a></li>
+          <li><a href="#setup">Setup</a></li>
+          <li><a href="#customize">Customize</a></li>
+          <li><a href="#backend">Backend</a></li>
+          <li><a href="#appscreens">App Screens</a></li>
+          <li><a href="#adminPanel">Admin panel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="markdown-section">
+        <section id="introduction" class="page-section pt-4">
+          <blockquote class="mt-0">
+            <h4>Introduction</h4>
+            <p>A React Native Online Shopping App with complete backend integration.</p>
+          </blockquote>
+          <p>App is built using Redux and is performance optimised which helps you to develop world-class application experiences on native platforms. This gives your app a consistent look and feel with the rest of the platform ecosystem, and keeps the quality bar high.</p>
+          <ul>
+            <li>React Version: 18.2.0</li>
+            <li>React Native Version: 0.72.3</li>
+            <li>React Navigation Version: 6.1.7</li>
+            <li>Redux Version: 4.2.1</li>
+          </ul>
+          <p>The app includes all essential screen along with many customisable options through a configuration file.</p>
+          <p>In this documentation we will explore everything in this app so you can get started with the app.</p>
+          <p>Let's get started.</p>
+        </section>
+        <section id="requirements" class="page-section">
+          <blockquote>
+            <h4>Requirements</h4>
+          </blockquote>
+          <div class="fs-6 fw-bold mb-2">NodeJS</div>
+          <p>Make sure you have a recent version (16 or newer) of <a href="https://nodejs.org/en/" target="_blank">Node</a> installed globally.</p>
+          <p>We recommend installing Node and Watchman using <a href="https://brew.sh/" target="_blank">Homebrew.</a> Run the following commands in a Terminal after installing Homebrew:</p>
+          <p>brew install node<br/>brew install watchman</p>
+          <p>If you have already installed Node on your system, make sure it is Node 16 or newer.</p>
+          <br />
+
+          <h5 class="fw-normal mb-2">For IOS View</h5>
+
+          <div class="fs-6 fw-bold mb-2">Xcode & CocoaPods</div>
+          <p>The easiest way to install Xcode is via the <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Mac App Store.</a> Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.</p>
+          <p>If you have already installed Xcode on your system, make sure it is version 10 or newer.</p>
+          <i class="fw-500">Installing an iOS Simulator in Xcode</i>
+          <p>To install a simulator, open <b>Xcode > Preferences…</b> and select the <b>Components</b> tab. Select a simulator with the corresponding version of iOS you wish to use.</p>
+          <i class="fw-500">CocoaPods</i>
+          <p>
+            <a href="https://cocoapods.org/" target="_blank">CocoaPods</a> is one of the dependency management system available for iOS. It is built with Ruby and you can install it using the version of Ruby you configured with in the previous steps.
+          </p>
+
+          <br />
+          <h5 class="fw-normal mb-2">For Android View</h5>
+          <div class="fs-6 fw-bold mb-2">Java Development Kit</div>
+          <p>We recommend installing the OpenJDK distribution called Azul Zulu using <a href="https://brew.sh/" target="_blank">Homebrew.</a> Run the following commands in a Terminal after installing Homebrew:</p>
+          <p>brew tap homebrew/cask-versions<br />
+          brew install --cask zulu11</p>
+          <p>The Zulu OpenJDK distribution offers JDKs for both Intel and M1 Macs. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.</p>
+          <p class="mb-4">If you have already installed JDK on your system, we recommend JDK 11. You may encounter problems using higher JDK versions.</p>
+          <div class="fs-6 fw-bold mb-2">Android development environment</div>
+          <p>please make sure to carefully follow the next few steps.</p>
+
+          <i class="fw-500">1. Install Android Studio</i>
+          <p class="mt-2">Download and <a href="https://developer.android.com/studio" target="_blank">install Android Studio.</a> While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:</p>
+          <ul>
+            <li>Android SDK</li>
+            <li>Android SDK Platform</li>
+            <li>Android Virtual Device</li>
+          </ul>
+          <p>Then, click "Next" to install all of these components.</p>
+          <p>Once setup has finalized and you're presented with the Welcome screen, proceed to the next step.</p>
+
+          <i class="fw-500">2. Install the Android SDK</i>
+          <p class="mt-2">Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the Android 13 (Tiramisu) SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.<br />To do that, open Android Studio, click on "More Actions" button and select "SDK Manager".</p>
+          <img src="./assets/images/android-wlc.png" class="img-fluid"/>
+          <p>Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 13 (Tiramisu) entry, then make sure the following items are checked:</p>
+          <ul>
+            <li>Android SDK Platform 33</li>
+            <li>Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image or (for Apple M1 Silicon) Google APIs ARM 64
+            v8a System Image</li>
+          </ul>
+          <p>Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that 33.0.0 is selected.</p>
+          <p>Finally, click "Apply" to download and install the Android SDK and related build tools.</p>
+
+          <i class="fw-500">3. Configure the ANDROID_HOME environment variable</i>
+          <p class="mt-2">The React Native tools require some environment variables to be set up in order to build apps with native code.</p>
+          <p>Add the following lines to your ~/.zprofile or ~/.zshrc (if you are using bash, then ~/.bash_profile or ~/.bashrc) config file:
+
+          </p>
+          <p>
+            export ANDROID_HOME=$HOME/Library/Android/sdk<br />
+            export PATH=$PATH:$ANDROID_HOME/emulator<br />
+            export PATH=$PATH:$ANDROID_HOME/platform-tools
+          </p>
+          <p>Run source ~/.zprofile (or source ~/.bash_profile for bash) to load the config into your current shell. Verify that ANDROID_HOME has been set by running echo $ANDROID_HOME and the appropriate directories have been added to your path by running echo $PATH.</p>
+          <div class="fs-6 fw-bold mt-3 mb-2">React Native Command Line Interface</div>
+          <p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p>
+        </section>
+        <section id="configuration" class="page-section">
+          <blockquote>
+            <h4>Configuration</h4>
+          </blockquote>
+          <p>Open config.js file in root level</p>
+          <ul class="mt-ul-list">
+            <li>Configure api url</li>
+            <ul>
+              <li>Replace <span class="fw-500">apiUrl</span> with the hosting url on which your Node API is running</li>
+            </ul>
+            <li>Configure google:
+              <ul>
+                <li>Replace <span class="fw-500">apiKey</span> with your google account api key</li>
+              </ul>
+            </li>
+            <li>Configure razor payment:
+              <ul>
+                <li>Replace <span class="fw-500">accessKeyId</span> with your razor account access key</li>
+              </ul>
+            </li>
+            <li>Configure Amazon S3:
+              <ul>
+                <li>Replace <span class="fw-500">accessKeyId</span> with your Amazon S3 access key id</li>
+                <li>Replace <span class="fw-500">secretAccessKey</span> with your Amazon S3 secret access key</li>
+                <li>Replace <span class="fw-500">region</span> with your Amazon S3 region</li>
+                <li>Replace <span class="fw-500">bucket</span> with your Amazon S3 bucket name</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section id="setup" class="page-section">
+          <blockquote>
+            <h4>Setup</h4>
+          </blockquote>
+          <p>Run the following commands on your terminal to setup GMart React Native App on your system.</p>
+          <p>
+            cd GMart<br />
+            npm install<br />
+            npx react-native link<br />
+            cd ios <br />
+            npx pod-install
+          </p>
+          <i>Run on IOS</i>
+          <ul class="mt-2 mt-ul-list">
+            <li>Opt #1:
+              <ul>
+                <li>Open the project in Xcode from ios/GMart.xcworkspace</li>
+                <li>Click run button to simulate</li>
+              </ul>
+            </li>
+            <li>Opt #2:
+              <ul><li>Run npx react-native run-ios in your terminal</li></ul>
+            </li>
+          </ul>
+          <i>Run on Android</i>
+          <ul class="mt-2">
+            <li>Make sure you have an Android emulator installed and running</li>
+            <li>Run npx react-native run-android in your terminal</li>
+          </ul>
+          <i class="fw-500">Running on a device</i>
+          <p>If you want to run the app on an actual physical device, please follow the instructions here.<br />
+            <a href="https://facebook.github.io/react-native/docs/running-on-device" target="_blank">https://facebook.github.io/react-native/docs/running-on-device</a>
+          </p>
+        </section>
+        <section id="customize" class="page-section">
+          <blockquote>
+            <h4>Customize</h4>
+          </blockquote>
+          <p>Customizing the App will be a cakewalk for you. That is due to the fact, we provide you well prepared code. This makes it quite simple to be able to dig through the code and hence without problems customizable.</p>
+          <!-- <div class="fs-6 fw-bold mb-2">Change app logo</div>
+          <p>In order to change logo display in screen header:</p>
+          <ul>
+            <li>Include image of your logo named as logo.png</li>
+            <li>Replace it under assets/images/</li>
+          </ul> -->
+
+          <!-- <div class="fs-6 fw-bold mb-2">Change sidebar logo</div>
+          <p>In order to change sidebar logo display in sidebar menu:</p>
+          <ul>
+            <li>Include image of your logo named as menu-logo.png</li>
+            <li>Replace it under assets/images/</li>
+          </ul> -->
+
+          <div class="fs-6 fw-bold mb-2">Change splash image</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>You should upload ios splash images to ios/GMart/Images.xcassets/splash.imageset/ with respective image name and size</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>You should upload android splash images to android/app/src/main/res/drawable_folder_name(drawable-hdpi, drawable-mdpi) with respective image name and size</p>
+
+          <div class="fs-6 fw-bold mt-3 mb-2">Change app icon</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>You should upload ios icons to ios/GMart/Images.xcassets/AppIcon.appiconset/ with respective icon name and size</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>You should upload android icon images to android/app/src/main/res/mipmap_folder_name(mipmap-hdpi, mipmap-mdpi) with respective icon name and size</p>
+
+          <div class="fs-6 fw-bold mb-1 mt-3">Change app name</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>In order to change the app name you need to modify the ios/GMart/info.plist and change <span class="fw-500">CFBundleDisplayName</span> key property value.</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>In order to change the app name you need to modify the app.json and change the <span class="fw-500">name</span> and <span class="fw-500">displayName</span> properties and also the <span class="fw-500">app_name</span> property from android/app/src/main/res/values/strings.xml.</p>
+
+          <div class="fs-6 fw-bold mt-3 mb-1">Change theme color</div>
+          <p>You can edit the app theme colors by modifying the src/constants/colors.js file.</p>
+        </section>
+        <section id="backend" class="page-section">
+          <blockquote>
+            <h4>Backend</h4>
+          </blockquote>
+          <p>As part of the architecture we have included the use of <b>NodeJS</b> as a complement for backend operations.</p>
+          <p>Code related to <span class="fw-bold">Node API</span> is located inside GMart api project.</p>
+          <p>Open config.js file in root level of GMart api project.</p>
+          <ul class="mt-ul-list">
+            <li>Configure google:
+              <ul>
+                <li>Replace <span class="fw-500">apiKey</span> with your google key</li>
+              </ul>
+            </li>
+            <li>Configure razorPay payment:
+              <ul>
+                <li>Replace <span class="fw-500">keyId</span> with your razor pay account key id</li>
+                <li>Replace <span class="fw-500">keySecret</span> with your razor pay account key secret</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="fs-6 fw-bold mt-4 mb-1">Setup</div>
+          <p>Run the following commands on your terminal to setup GMart api on your system.</p>
+          <p class="mb-3">cd GMart-backendApi<br />npm install<br /><span class="fw-500">Run api - </span>npm start</p>
+        </section>
+        <section id="appscreens" class="page-section pt-4">
+          <blockquote class="mt-0">
+            <h4>App Screens</h4>
+          </blockquote>
+          <ol>
+            <li class="fs-6 fw-bold">Home Screen</li>
+            <p>At the top of the home screen, The page <span class="fw-500">title</span> displays, <span class="fw-500">WishList</span>  and <span class="fw-500">Cart</span> icon at the very right.
+              <br />By clicking <span class="fw-500">wishlist</span> icon, user can open wishlist screens.
+              <br />By clicking <span class="fw-500">cart</span> icon, user can open cart screens.
+              <br />The <span class="fw-500">Search</span> facility will allow you to search the products.
+              <br />The <span class="fw-500">Banner Images</span> will display next, which you can manage from the Admin panel.
+              <br />Next, you have <span class="fw-500">Categories</span> section.
+              <br />Then you have the <span class="fw-500">popular products section,</span> where popular products will be displayed. By clicking <span class="fw-500">See all</span> button you can see all popular products.</span>
+            </p>
+            <p class="mb-0">At the bottom you have <span class="fw-500">Four Icons.</span> All Four facilities are specifically designed to have in bottom. E-Commerce users navigate to these five functions most.</p>
+            <ul class="mt-list">
+              <li><span class="fw-500">Home Icon:</span> From anywhere in the application, by clicking on this Home icon, will take the user to the <span class="fw-500">Home Page.</span></li>
+              <li><span class="fw-500">Browse:</span> By clicking on browse you will naviagte to products page where you can search product by name, category, loaction.</li>
+              <li><span class="fw-500">Orders:</span> It will take the user to his/her order history. The biggest facility of any E-Commerce app is, to have the order history, on just a click away.</li>
+              <li><span class="fw-500">Profile:</span> It will take user to the <span class="fw-500">Profile Screen.</span></li>
+            </ul>
+            <img src="./assets/images/app-home.png" class="img-fluid app-img" alt="Home" />
+
+            <li class="fs-6 fw-bold">Product detail Screen</li>
+            <p>
+              Product detail screen display information about the product including the photos, name, price, special price, discount, description, and various available options.
+              <br />At the top of screen product photos slider will be displayed.
+              <br />You can share product, add product to wishlist from this screen.
+              <br />By clicking on Add to Cart button you can add product to the cart
+            </p>
+            <img src="./assets/images/app-product-detail.png" class="img-fluid app-img" alt="Product detail" />
+
+            <li class="fs-6 fw-bold">Browse Screen</li>
+            <p>From this screen, you can search for products by its name, by its category, and location.
+              <br />You can sort products by its price, alphbetical name, or popularity.
+              <br /><span class="fw-500">Loaction</span> facility is also available. search any location and it will show all products list available in that location</span>.
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/app-browse.png" class="img-fluid app-img" alt="Search" />
+              <img src="./assets/images/app-sort-products.png" class="img-fluid app-img ms-5" alt="Sort products" />
+              <img src="./assets/images/app-location.png" class="img-fluid app-img ms-5" alt="Search" />
+              <img src="./assets/images/app-category-products.png" class="img-fluid app-img ms-5" alt="Filter products" />
+            </div>
+
+            <li class="fs-6 fw-bold">Cart Screen</li>
+            <p>
+              As we mentioned earlier, you can open it by clicking <span class="fw-500">Cart Icon</span> from the home screen.
+              <br />Modify the <span class="fw-500">Quantity</span> in real time, and get the information about <span class="fw-500">Subtotal,</span> will help customer to know exact details before ordering.
+              <br />By clicking on the continue to payment button, It will start the process of <span class="fw-500">Checkout.</span> To complete the <span class="fw-500">Checkout</span> process you must have an account.
+            </p>
+            <img src="./assets/images/app-cart.png" class="img-fluid app-img" alt="Cart" />
+
+            <li class="fs-6 fw-bold">Checkout Screen</li>
+              There are two payment methods available in the app:
+              <ul class="mt-list">
+                <li>Card, Upi & More</li>
+                <li>Cash on Delivery</li>
+              </ul>
+              Choose anyone from it, and hit the button <span class="fw-500">Checkout</span>
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/app-payment.png" class="img-fluid app-img" alt="Search" />
+              <img src="./assets/images/app-rezor-payment.png" class="img-fluid app-img ms-5" alt="Filter products" />
+            </div>
+
+            <li class="fs-6 fw-bold">Order Screen</li>
+              <p>Here you will see the details about all of your <span class="fw-500">Delivered, Processing and Cancelled Orders.</span>
+              <br />You can <span class="fw-500">cancel</span> particular order with processing status by clicking cancel button.
+              <br />To know about the details, which exact product you purchased with how much quantity, click on details button of the particular order.
+              <br />Order summary screen having all exact information about the order. <span class="fw-500">Tap on Back Arrow</span> from top-left corner to go back to the <span class="fw-500">My Orders</span> screen.
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/app-order.png" class="img-fluid app-img" alt="Orders" />
+              <img src="./assets/images/app-order-details.png" class="img-fluid app-img ms-5" alt="Order detail" />
+            </div>
+
+            <li class="fs-6 fw-bold">Registration Screen</li>
+            <img src="./assets/images/app-register.png" class="img-fluid app-img" alt="Registration" />
+
+            <li class="fs-6 fw-bold">Login Screen</li>
+            <img src="./assets/images/app-login.png" class="img-fluid app-img" alt="Login" />
+
+            <li class="fs-6 fw-bold">My Account Screen</li>
+            <div class="d-flex">
+              <img src="./assets/images/app-profile.png" class="img-fluid app-img" alt="Account" />
+              <img src="./assets/images/app-profile-edit.png" class="img-fluid app-img ms-5" alt="Profile edit" />
+            </div>
+
+            <li class="fs-6 fw-bold">Address Screen</li>
+            <div class="d-flex">
+              <img src="./assets/images/app-my-address.png" class="img-fluid app-img" alt="Address" />
+              <img src="./assets/images/app-add-address.png" class="img-fluid app-img ms-5" alt="Add address" />
+            </div>
+
+            <li class="fs-6 fw-bold">Privacy policy</li>
+            <img src="./assets/images/app-privacy-policy.png" class="img-fluid app-img" alt="Privacy" />
+
+            <li class="fs-6 fw-bold">Terms & conditions</li>
+            <img src="./assets/images/app-terms.png" class="img-fluid app-img" alt="Terms" />
+          </ol>
+        </section>
+        <section id="adminPanel" class="page-section">
+          <blockquote>
+            <h4>Admin panel</h4>
+          </blockquote>
+          <p>Responsive Web Admin - order management system. The system has the ability to manage the catalog of products and work with orders.</p>
+          <p>As part of the architecture we have included the use of React as a complement for admin panel operations.</p>
+
+          <ul>
+            <li>React Version: 18.2.0</li>
+            <li>React Router Dom Version: ^6.15.0</li>
+          </ul>
+
+          <div class="fs-6 fw-bold mb-2">Features</div>
+          <ul>
+            <li>Manage Users</li>
+            <li>Manage Categories</li>
+            <li>Manage Products</li>
+            <li>Manage Banners</li>
+            <li>Manage Orders</li>
+            <li>Dashboard statistics about orders</li>
+          </ul>
+
+          <div class="fs-6 fw-bold mb-2">Configuration</div>
+          <p>Open .env file at the root of the admin panel.</p>
+            Admin panel will uses <b>Amazon S3</b> for files upload.
+
+          <div class="">
+            <p>Configure Amazon S3:</p>
+              <ul>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_ACCESS_KEY</span> with your Amazon S3 access key id</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_SECRET_KEY</span> with your Amazon S3 secret access key</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_REGION</span> with your Amazon S3 region</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_BUCKET</span> with your Amazon S3 bucket name</li>
+              </ul>
+            </p>
+          </div>
+          <div class="">
+            <p>Configure API url:</p>
+            <ul>
+              <li>Replace <span class="fw-500">REACT_APP_WEB_API_HOST</span> with the hosting url on which your Node API is running</li>
+            </ul>
+            <p>Configure Google API key:</p>
+            <ul>
+              <li>Replace <span class="fw-500">REACT_APP_GOOGLE_API_KEY</span> with the your google account API key</li>
+            </ul>
+          </div>
+
+          <div class="fs-6 fw-bold mb-2">Setup</div>
+          <p>Run the following commands on your terminal to setup GMart Admin Panel on your system.</p>
+          <p class="mb-3">cd Gmart-admin<br />npm install<br /><span class="fw-500">Run admin panel - </span>npm start</p>
+
+          <div class="fs-6 fw-bold mb-2">Admin Panel Access</div>
+          <p class="mb-3">Email: admin@admin.com<br />Password: admin123</p>
+
+          <div class="fs-6 fw-bold mb-2">Admin Panel Pages</div>
+          <ol type="number">
+            <li class="fs-14 fw-500">Dashboard</li>
+            <p>
+              This screen shows the statistics and summary about the business. <span class="fw-500">total daily and monthly orders?</span> monthly income etc.
+              <br />Also it has two important settings:
+              <ul class="mt-list">
+                <li><span class="fw-500">Free Order Delivery Limit:</span> Set the amount here. Customers will be charged for Delivery only if the amount is lower than the Amount you're setting up here.</li>
+                <li><span class="fw-500">Delivery charge:</span> Set the amount which will charge the user.</li>
+              </ul>
+            </p>
+            <img src="./assets/images/dashboard.png" class="img-fluid screen-img" alt="Dashboard" />
+
+            <li class="fs-14 fw-500">Users</li>
+            <p>
+              This page will allow admin to see all <span class="fw-500">users(customers)</span> of the app.
+              <br />Admin can <span class="fw-500">add</span> new users, <span class="fw-500">edit</span> particular user information and <span class="fw-500">remove</span> users.
+              <br />Admin can also <span class="fw-500">search</span> the users by their name, email, phone.
+            </p>
+            <img src="./assets/images/users.png" class="img-fluid screen-img" alt="Users" />
+
+            <li class="fs-14 fw-500">Categories</li>
+            <p>
+              <span class="fw-500">All Product Categories</span> are listed here. Admin can manage it with full control.
+              <br />Admin can add/edit category from add/edit category section.
+              <br />There is a <span class="fw-500">rule to remove a Category.</span> It will not be deleted <span class="fw-500">if any product is assigned to it.</span> So, in such cases, remove the related products first and then remove the category.
+              <br />Admin can search the categories by their <span class="fw-500">name.</span>
+            </p>
+            <img src="./assets/images/category.png" class="img-fluid screen-img" alt="Categories" />
+
+            <li class="fs-14 fw-500">Products</li>
+            <p>
+              This page will allow admin to manage all <span class="fw-500">Products.</span>
+              <br />Along with Add, Edit, Delete Products, Admin will able to set the <span class="fw-500">Visibility</span> of the Product too. To show <span class="fw-500">Products in Mobile Application,</span> It must have status <span class="fw-500">visible.</span>
+              <br />Admin can <span class="fw-500">search products</span> by their name. Also the <span class="fw-500">Filter</span> option available, to filter the products <span class="fw-500">by Categories.</span>
+            </p>
+            <img src="./assets/images/products.png" class="img-fluid screen-img" alt="Products" />
+            <!-- <img src="./assets/images/product-edit.png" class="img-fluid screen-img mt-2" alt="Product" />
+            <img src="./assets/images/product-option-edit.png" class="img-fluid screen-img mt-2" alt="Product-option" /> -->
+
+            <li class="fs-14 fw-500">Banners</li>
+            <p>
+              The Mobile Application having the slider in the Home Page. The <span class="fw-500">Banners</span> of that sliders are listed here.
+              <br />This page will allow admin to add new banners, remove particular banner or change the visibility of the banner.
+              <br /><span class="fw-500">Banners with status visible</span> will be displayed on Application.
+            </p>
+            <img src="./assets/images/banners.png" class="img-fluid screen-img" alt="Banners" />
+
+            <li class="fs-14 fw-500">Orders</li>
+            <p>This page will allow admin to manage all the orders.</p>
+            <p class="mb-0">
+              Also you will see two buttons for some orders, as you see in the screenshot.
+              <br /><span class="fw-500">Order Delivered:</span> Once the delivery boy delivers the order, he/she can hit this button, and after confirmation:
+            </p>
+            <ul class="mt-list">
+              <li>The order status will be changed to delivered</li>
+            </ul>
+            <p><span class="fw-500">Order Cancellation:</span> We are providing a cancellation facility for the order. Until the order is not in delivered state, and if Admin wants to cancel for any reason, Admin has all the powers to cancel the order.</p>
+            <p class="mb-0 fw-500">There are three statuses of the Order available:</p>
+            <ul class="mt-list">
+              <li>Placed: Once the user places the order from Application, The Order status always be in <span class="fw-500">Placed.</span></li>
+              <li>Cancelled: Order can be in <span class="fw-500">Cancelled</span> status, only if Admin or customer cancelled the order.</li>
+              <li>Delivered: All Orders will stay in <span class="fw-500">Delivered</span> status, once they get delivered.</li>
+            </ul>
+            <p class="mt-2">
+              Admin also have other functionalities like:
+              <br /><span class="fw-500">Search orders</span> by user(customer) name, email, or price. This will really help admin to get similar orders by particular name or email. Admin can filter the same price orders.
+              <br />Filter the <span class="fw-500">Orders by their status.</span>
+              <br />Filter the <span class="fw-500">Orders by particular time period</span> by selecting From Date and To Date.
+              <br />Download the Order receipt as a <span class="fw-500">pdf</span> file.
+            </p>
+            <img src="./assets/images/orders.png" class="img-fluid screen-img" alt="Orders" />
+<!--
+            <li class="fs-14 fw-500">Notifications</li>
+            <p>
+              All notifications are listed here. Admin can add/edit notification from this page.
+            </p>
+            <img src="./assets/images/notifications.png" class="img-fluid screen-img" alt="Notifications" /> -->
+
+            <li class="fs-14 fw-500">Privacy Policy</li>
+            <p>
+              Admin can add/update privacy policy from this page which will be displayed in <span class="fw-500">privacy policy</span> screen of the app.
+            </p>
+            <img src="./assets/images/privacy.png" class="img-fluid screen-img" alt="Privacy policy" />
+
+            <li class="fs-14 fw-500">Terms & conditions</li>
+            <p>
+              Admin can add/update terms & conditions from this page which will be displayed in <span class="fw-500">terms & conditions</span> screen of the app
+            </p>
+            <img src="./assets/images/terms.png" class="img-fluid screen-img" alt="Terms & conditions" />
+          </ol>
+        </section>
+        <section id="support" class="page-section pt-0">
+          <blockquote>
+            <h4>Support</h4>
+          </blockquote>
+          <p>If you have any additional questions, which aren't covered in our documentation, feel free to reach us here:
+              <br /><a href="https://mahardhi.freshdesk.com" target="_blank">https://mahardhi.freshdesk.com</a>
+          </p>
+        </section>
+      </div>
+		</div>
+    <a href="javascript:void(0);" class="scrollToTop"><img src="./assets/images/angle-up.png" /></a>
+  </body>
+</html>
